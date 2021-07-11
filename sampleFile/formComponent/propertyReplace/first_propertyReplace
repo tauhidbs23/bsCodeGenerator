@@ -1,0 +1,3 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="component_nameForm">
+
+  <ion-list>

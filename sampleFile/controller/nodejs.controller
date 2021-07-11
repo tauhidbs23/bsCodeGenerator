@@ -1,0 +1,92 @@
+const _modelName_ = require('../models/_modelName_');
+
+// @desc    Get all _property_s
+// @route   GET /api/v1/_property_s
+// @access  Public
+exports.get_modelName_s = async (req, res, next) => {
+  try {
+    const _property_s = await _modelName_.find();
+
+    if (!_property_s) {
+      return res.status(400).json({ success: false });
+    }
+
+    res.status(200).json({ success: true, count: _property_s.length, data: _property_s });
+  } catch (err) {
+    res.status(400).json({ success: false });
+  }
+}
+
+// @desc    Get single _property_
+// @route   GET /api/v1/_property_s/:id
+// @access  Public
+exports.get_modelName_ = async (req, res, next) => {
+  try {
+    const _property_ = await _modelName_.findById(req.params.id);
+
+    if (!_property_) {
+      return res.status(400).json({ success: false });
+    }
+
+    res.status(200).json({ success: true, data: _property_ });
+  } catch (err) {
+    res.status(400).json({ success: false });
+  }
+}
+
+// @desc    create new _property_
+// @route   POST /api/v1/_property_s
+// @access  Public
+exports.create_modelName_ = async (req, res, next) => {
+  try {
+    const _property_ = await _modelName_.create(req.body);
+    res.status(201).json({
+      success: true,
+      data: _property_
+    });
+  } catch (err) {
+    res.status(400).json({
+      success: false,
+    });
+  }
+}
+
+// @desc    update _property_s
+// @route   PUT /api/v1/_property_s/:id
+// @access  Public
+exports.update_modelName_ = async (req, res, next) => {
+  try {
+    const _property_ = await _modelName_.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
+
+    if (!_property_) {
+      return res.status(400).json({ success: false });
+    }
+    res.status(200).json({ success: true, data: _property_ });
+
+  } catch (err) {
+    res.status(400).json({ success: false });
+
+  }
+}
+
+// @desc    delete _property_s
+// @route   DELETE /api/v1/_property_s/:id
+// @access  Public
+exports.delete_modelName_ = async (req, res, next) => {
+  try {
+    const _property_ = await _modelName_.findByIdAndDelete(req.params.id);
+
+    if (!_property_) {
+      return res.status(400).json({ success: false });
+    }
+    res.status(200).json({ success: true, data: {} });
+
+  } catch (err) {
+    res.status(400).json({ success: false });
+
+  }
+}
+

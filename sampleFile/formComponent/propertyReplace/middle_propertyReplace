@@ -1,0 +1,6 @@
+
+    <ion-item>
+      <ion-label position="floating">property_name</ion-label>
+      <ion-input type="text" class="form-control" name="property_name" formControlName="property_name" placeholder="">
+      </ion-input>
+    </ion-item>
